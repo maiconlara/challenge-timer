@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Nunito';
+		src: local('Nunito'), local('nunito'), url('/fonts/Nunito-Regular.ttf');
+		font-weight: normal;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Nunito';
+		src: local('Nunito'), local('nunito'), url('/fonts/Nunito-Medium.ttf');
+		font-weight: 500;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Nunito';
+		src: local('Nunito'), local('nunito'), url('/fonts/Nunito-SemiBold.ttf');
+		font-weight: 600;
+		font-display: swap;
+	}
+	@font-face {
+		font-family: 'Nunito';
+		src: local('Nunito'), local('nunito'), url('/fonts/Nunito-Bold.ttf');
+		font-weight: bold;
+		font-display: swap;
+	}
+}
+
+div {
+	background-color: #fff;
+}
+
+*,
+html,
+body {
+	scroll-behavior: smooth !important;
+}
