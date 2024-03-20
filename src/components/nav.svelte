@@ -1,4 +1,15 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
+	import { page } from '$app/stores';
+
+	let currentPath = $page.route.id;
+	let handleNavigate = () => {
+		if (currentPath === '/') {
+			goto(`/candidate`, { replaceState: false });
+		} else if (currentPath === '/candidate') {
+			goto(`/`, { replaceState: false });
+		}
+	};
 </script>
 
 <div
@@ -8,8 +19,9 @@
 		<p class="uppercase text-2xl font-bold select-none">Lesser</p>
 	</div>
 	<button
+		on:click={handleNavigate}
 		class="hidden lg:flex rounded-full font-semibold text-white py-2 px-6 bg-lesser-500 hover:bg-lesser-600 transition-colors"
 	>
-		Candidate
+		{currentPath == '/' ? 'Candidate' : 'Home'}
 	</button>
 </div>

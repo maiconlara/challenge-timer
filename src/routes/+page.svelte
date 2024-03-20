@@ -1,25 +1,25 @@
+	
+
+
 <script lang="ts">
 	import Nav from '../components/nav.svelte';
 	import ErrorModal from '../components/error-modal.svelte';
+	import {writableUser, type User} from "$lib/store"
 
-	interface user {
-		nome: string;
-		telefone: string;
-		email: string;
-	}
 
-	let user: user = {
-		nome: '',
-		telefone: '',
-		email: ''
-	};
+
 	const handleSubmit = (event: Event) => {
-		if (!user.nome || !user.telefone || !user.email) {
+		let currentUser: User = { nome: '', telefone: '', email: '' };
+		writableUser.subscribe((value) => {
+			currentUser = value;
+		})();
+
+		if (!currentUser.nome || !currentUser.telefone || !currentUser.email) {
 			errorModal.showModal();
+			event.preventDefault();
 			return;
 		}
 		event.preventDefault();
-		console.log(user);
 	};
 </script>
 
@@ -45,7 +45,7 @@
 				/></svg
 			>
 
-			<input type="text" bind:value={user.nome} class="grow" placeholder="Nome" />
+			<input type="text" bind:value={$writableUser.nome} class="grow" placeholder="Nome" />
 		</label>
 		<label class="input input-bordered flex w-full items-center gap-4 bg-white border-gray-400">
 			<svg
@@ -59,7 +59,7 @@
 				/></svg
 			>
 
-			<input type="text" bind:value={user.telefone} class="grow" placeholder="Telefone" />
+			<input type="text" bind:value={$writableUser.telefone} class="grow" placeholder="Telefone" />
 		</label>
 
 		<label class="input input-bordered flex w-full items-center gap-4 bg-white border-gray-400">
@@ -74,7 +74,7 @@
 					d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
 				/></svg
 			>
-			<input type="text" bind:value={user.email} class="grow" placeholder="Email" />
+			<input type="text" bind:value={$writableUser.email} class="grow" placeholder="Email" />
 		</label>
 		<button
 			type="submit"
