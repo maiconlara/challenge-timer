@@ -21,7 +21,7 @@
 	});
 
 	const startTimer = () => {
-		writableTimer.set({ minutes: 0, seconds: 3 });
+		writableTimer.set({ minutes: 0, seconds: 15 });
 
 		if (intervalId !== undefined) {
 			clearInterval(intervalId);

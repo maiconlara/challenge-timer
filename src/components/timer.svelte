@@ -1,7 +1,7 @@
 <script lang="ts">
-	import { writableTimer, isTimerRunning} from '$lib/store';
+	import { writableTimer, isTimerRunning } from '$lib/store';
 
-    let timerRunning = false;
+	let timerRunning = false;
 	let successModalOpen = false;
 	let minutes = 0;
 	let seconds = 0;
@@ -22,8 +22,6 @@
 		successModalOpen = true;
 	};
 </script>
-
-
 
 <dialog id="successModal" class="modal" class:modal-open={successModalOpen}>
 	<div class="modal-box bg-white flex flex-col items-center">
