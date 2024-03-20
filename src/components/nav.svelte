@@ -1,9 +1,20 @@
 <script lang="ts">
+	import { writableUser, type User } from '$lib/store';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/stores';
 
+	let currentUser: User = { nome: '', telefone: '', email: '' };
+
+	const unsubscribe = writableUser.subscribe((value) => {
+		currentUser = value;
+	});
+
 	let currentPath = $page.route.id;
 	let handleNavigate = () => {
+		if (!currentUser.nome || !currentUser.telefone || !currentUser.email) {
+			errorModal.showModal();
+			return;
+		}
 		if (currentPath === '/') {
 			goto(`/candidate`, { replaceState: false });
 		} else if (currentPath === '/candidate') {
