@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { writableUser, type User } from '$lib/store';
 	import Nav from '../../components/nav.svelte';
+	import Timer from '../../components/timer.svelte';
 
 	let currentUser: User = { nome: '', telefone: '', email: '' };
 
