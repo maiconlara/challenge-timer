@@ -73,7 +73,7 @@
 				on:click={() => timerError.set(false)}>✕</button
 			>
 		</form>
-		<h3 class="font-bold text-lg text-red-500">ERRO!</h3>
+		<h3 data-testid="timerError" class="font-bold text-lg text-red-500">ERRO!</h3>
 		<p class="py-4 text-lg">Desafio finalizado com falha!</p>
 	</div>
 	<form method="dialog" class="modal-backdrop">
@@ -89,7 +89,7 @@
 				on:click={() => (errorModalOpen = false)}>✕</button
 			>
 		</form>
-		<h3 class="font-bold text-lg text-red-500">ERRO!</h3>
+		<h3 data-testid="error" class="font-bold text-lg text-red-500">ERRO!</h3>
 		<p class="py-4 text-lg">Preencha todos os dados antes de continuar!</p>
 	</div>
 	<form method="dialog" class="modal-backdrop">
@@ -118,7 +118,13 @@
 					/></svg
 				>
 
-				<input type="text" bind:value={$writableUser.nome} class="grow" placeholder="Nome" />
+				<input
+					data-testid="name"
+					type="text"
+					bind:value={$writableUser.nome}
+					class="grow"
+					placeholder="Nome"
+				/>
 			</label>
 			<label class="input input-bordered flex w-full items-center gap-4 bg-white border-gray-400">
 				<svg
@@ -133,6 +139,7 @@
 				>
 
 				<input
+					data-testid="phone"
 					type="text"
 					bind:value={$writableUser.telefone}
 					class="grow"
@@ -152,9 +159,16 @@
 						d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"
 					/></svg
 				>
-				<input type="text" bind:value={$writableUser.email} class="grow" placeholder="Email" />
+				<input
+					data-testid="email"
+					type="text"
+					bind:value={$writableUser.email}
+					class="grow"
+					placeholder="Email"
+				/>
 			</label>
 			<button
+				data-testid="start"
 				type="submit"
 				class="flex rounded-full mt-2 font-semibold text-white py-2 px-6 w-full items-center justify-center bg-lesser-500 hover:bg-lesser-600 transition-colors"
 			>

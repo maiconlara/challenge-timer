@@ -45,6 +45,7 @@
 		<span style="--value:{seconds};"></span>
 	</span>
 	<button
+	data-testid="sent"
 		on:click={handleSuccess}
 		class="flex rounded-full mt-2 font-semibold text-white py-2 px-6 w-full items-center justify-center bg-lesser-500 hover:bg-lesser-600 transition-colors"
 	>
