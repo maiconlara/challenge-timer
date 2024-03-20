@@ -37,7 +37,9 @@ test('Should fail after 15 seconds of no submiting', async ({ page }) => {
 	await expect(page.getByTestId('timerError')).toHaveText('ERRO!');
 });
 
-test('Should go to candidate page, return and fail after 15 seconds of no submiting', async ({ page }) => {
+test('Should go to candidate page, return and fail after 15 seconds of no submiting', async ({
+	page
+}) => {
 	await page.goto('/');
 	await page.getByTestId('name').click();
 	await page.keyboard.type('Maicon Lara');
